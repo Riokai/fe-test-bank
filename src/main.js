@@ -1,7 +1,10 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource'
 // import App from './App'
 
 import setRouter from './router'
+
+Vue.use(VueResource)
 
 require('assets/css/bootstrap.min.css')
 require('assets/css/font-awesome.min.css')

@@ -31,14 +31,14 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" name="username"/>
+															<input v-model="username" type="text" class="form-control" placeholder="Username" name="username"/>
 															<i class="icon-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" name="password"/>
+															<input v-model="password" type="password" class="form-control" placeholder="Password" name="password"/>
 															<i class="icon-lock"></i>
 														</span>
 													</label>
@@ -51,7 +51,7 @@
 															<span class="lbl"> 记住我</span>
 														</label>
 
-														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+														<button @click="login" type="button" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="icon-key"></i>
 															登录
 														</button>
@@ -218,8 +218,32 @@
 				</div><!-- /.row -->
 			</div>
 		</div><!-- /.main-container -->
-</div>
+  </div>
 </template>
 
 <script>
+import R from 'services/resource'
+
+export default {
+  data () {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    login () {
+      R.login({ username: this.username, password: this.password })
+       .then(res => {
+         console.log(res)
+       })
+    }
+  }
+}
 </script>
+
+<style lang="scss">
+  body {
+    background: #1d2024;
+  }
+</style>
