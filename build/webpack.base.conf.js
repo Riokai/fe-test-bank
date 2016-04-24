@@ -10,7 +10,8 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     publicPath: config.build.assetsPublicPath,
-    filename: '[name].js'
+    filename: '[name].js',
+    chunkFilename: '[id].js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
@@ -19,7 +20,8 @@ module.exports = {
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
-      'services': path.resolve(__dirname, '../src/services')
+      'services': path.resolve(__dirname, '../src/services'),
+      'views': path.resolve(__dirname, '../src/views')
     }
   },
   resolveLoader: {

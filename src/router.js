@@ -20,7 +20,8 @@ export default Vue => {
     },
     '/login': {
       component (resolve) {
-        require(['./views/login'], resolve)
+        require(['views/Login'], resolve)
+        // require(['components/Hello'], resolve)
       }
     }
   })

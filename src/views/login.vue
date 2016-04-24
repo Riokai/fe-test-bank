@@ -222,18 +222,18 @@
 </template>
 
 <script>
-import R from 'services/resource'
+import { funcLogin } from 'services/resource'
 
 export default {
   data () {
     return {
-      username: '',
-      password: ''
+      username: 'jedeft',
+      password: 'admin'
     }
   },
   methods: {
     login () {
-      R.login({ username: this.username, password: this.password })
+      funcLogin({ username: this.username, password: this.password })
        .then(res => {
          console.log(res)
        })
