@@ -4,7 +4,7 @@
 module.exports = {
   'default e2e tests': function (browser) {
     browser
-    .url('http://localhost:8080')
+    .url('http://localhost:5000')
       .waitForElementVisible('#app', 5000)
       .assert.elementPresent('.logo')
       .assert.containsText('h1', 'Hello World!')
