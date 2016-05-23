@@ -20,8 +20,16 @@ export default Vue => {
     },
     '/login': {
       component (resolve) {
-        require(['views/Login'], resolve)
+        require(['views/login'], resolve)
         // require(['components/Hello'], resolve)
+      }
+    },
+    '/admin': {
+      component (resolve) {
+        require(['views/admin/index'], resolve)
+      },
+      subRoutes: {
+
       }
     }
   })
