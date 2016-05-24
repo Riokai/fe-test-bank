@@ -19,17 +19,24 @@ export default Vue => {
       component: Foo
     },
     '/login': {
+      name: '登录',
       component (resolve) {
         require(['views/login'], resolve)
         // require(['components/Hello'], resolve)
       }
     },
     '/admin': {
+      name: '首页',
       component (resolve) {
         require(['views/admin/index'], resolve)
       },
       subRoutes: {
-
+        '/scheduleBuild': {
+          name: '课表建设',
+          component (resolve) {
+            require(['views/admin/scheduleBuild'], resolve)
+          }
+        }
       }
     }
   })

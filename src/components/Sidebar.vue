@@ -39,7 +39,6 @@
       toggleMenu (name) {
         if (this.activeMenu !== name) {
           this.activeMenu = name
-          console.log(this.activeMenu)
         } else {
           this.activeMenu = ''
         }
