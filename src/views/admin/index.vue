@@ -8,7 +8,10 @@
         <bank-sidebar-collapse></bank-sidebar-collapse>
       </div>
       <div class="main-content">
-        <router-view></router-view>
+        <bank-breadcrumb></bank-breadcrumb>
+        <div class="page-content">
+          <router-view></router-view>
+        </div>
       </div>
     </div>
   </div>
@@ -20,13 +23,15 @@ import BankHeader from 'components/Header'
 import BankSidebar from 'components/Sidebar'
 import BankSidebarShortcut from 'components/SidebarShortcut'
 import BankSidebarCollapse from 'components/SidebarCollapse'
+import BankBreadcrumb from 'components/Breadcrumb'
 
 export default {
   components: {
     BankHeader,
     BankSidebar,
     BankSidebarShortcut,
-    BankSidebarCollapse
+    BankSidebarCollapse,
+    BankBreadcrumb
   },
   data () {
     return {

@@ -1,6 +1,6 @@
 <template>
   <ul class="nav nav-list">
-    <li v-for="(name, item) in data" @click="toggleMenu(name)">
+    <li v-for="(name, item) in data" @click="toggleMenu(name)" style="cursor: pointer;">
       <a v-link="isStr(item) ? { path: `/admin/${name}` } : {}">
 				<i class="icon-dashboard"></i>
 				<span class="menu-text">{{ isStr(item) ? item : item.title }}</span>

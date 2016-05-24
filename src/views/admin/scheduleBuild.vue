@@ -1,18 +1,12 @@
 <template>
-  <bank-breadcrumb></bank-breadcrumb>
+  sdfsf
 </template>
 
 <script>
-import BankBreadcrumb from 'components/Breadcrumb'
-
 export default {
-  components: {
-    BankBreadcrumb
-  },
+  components: {},
   data () {
-    return {
-
-    }
+    return {}
   }
 }
 </script>

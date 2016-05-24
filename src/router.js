@@ -36,6 +36,12 @@ export default Vue => {
           component (resolve) {
             require(['views/admin/scheduleBuild'], resolve)
           }
+        },
+        '/academyInfo': {
+          name: '学院信息',
+          component (resolve) {
+            require(['views/admin/academyInfo'], resolve)
+          }
         }
       }
     }
