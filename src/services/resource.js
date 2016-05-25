@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import { API } from '../data'
 //
-const HOST = 'http://121.42.216.103/testbank'
+// const HOST = 'http://121.42.216.103/testbank'
+const HOST = '//www.jedeft.cn/testbank'
 //
 // // let container = {}
 //

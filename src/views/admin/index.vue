@@ -19,20 +19,14 @@
 </template>
 
 <script>
-import BankHeader from 'components/Header'
-import BankSidebar from 'components/Sidebar'
-import BankSidebarShortcut from 'components/SidebarShortcut'
-import BankSidebarCollapse from 'components/SidebarCollapse'
-import BankBreadcrumb from 'components/Breadcrumb'
-
 export default {
-  components: {
-    BankHeader,
-    BankSidebar,
-    BankSidebarShortcut,
-    BankSidebarCollapse,
-    BankBreadcrumb
-  },
+  // components: {
+  //   BankHeader,
+  //   BankSidebar,
+  //   BankSidebarShortcut,
+  //   BankSidebarCollapse,
+  //   BankBreadcrumb
+  // },
   data () {
     return {
       menu: {

@@ -27,20 +27,32 @@
 <script>
   export default {
     data () {
-      return {}
+      return {
+        data: []
+      }
+    },
+    methods: {
+      createData () {
+        let target = this.$route.matched
+        this.data = []
+
+        for (let i = 0; i < target.length; i++) {
+          let route = {}
+
+          route.name = target[i].handler.name
+          route.path = target[i].handler.path
+
+          this.data.push(route)
+        }
+      }
     },
     created () {
-      let target = this.$route.matched
-      this.data = []
+      this.createData()
 
-      for (let i = 0; i < target.length; i++) {
-        let route = {}
-
-        route.name = target[i].handler.name
-        route.path = target[i].handler.path
-
-        this.data.push(route)
-      }
+      this.$router.afterEach(() => {
+        console.log('after')
+        this.createData()
+      })
     }
   }
 

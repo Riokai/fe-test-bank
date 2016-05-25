@@ -19,7 +19,7 @@
 </template>
 
 <style>
-.nav-list>li .submenu {
+.nav-list>li ul.submenu {
   display: block;
 }
 </style>
