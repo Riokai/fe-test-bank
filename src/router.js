@@ -1,4 +1,6 @@
 import VueRouter from 'vue-router'
+import {isLogin} from 'services/auth'
+import Storage from 'services/storage'
 
 export default Vue => {
   Vue.use(VueRouter)
@@ -27,6 +29,7 @@ export default Vue => {
     },
     '/admin': {
       name: '首页',
+      auth: 1,
       component (resolve) {
         require(['views/admin/index'], resolve)
       },
@@ -44,6 +47,29 @@ export default Vue => {
           }
         }
       }
+    }
+  })
+
+  function goLogin () {
+    router.go({path: '/login'})
+  }
+
+  router.beforeEach(({to, next}) => {
+    // console.log(to)
+    let token = Vue.http.headers.common['Token']
+
+    if (to.auth) {
+      if (isLogin() && Storage.getObj('role').role_id === to.auth) {
+        if (!token) {
+          Vue.http.headers.common['Token'] = Storage.get('token')
+        }
+
+        next()
+      } else {
+        goLogin()
+      }
+    } else {
+      next()
     }
   })
 

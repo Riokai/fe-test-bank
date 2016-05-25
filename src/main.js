@@ -10,6 +10,8 @@ import BankSidebar from 'components/Sidebar'
 import BankSidebarShortcut from 'components/SidebarShortcut'
 import BankSidebarCollapse from 'components/SidebarCollapse'
 import BankBreadcrumb from 'components/Breadcrumb'
+import BankSelect from 'components/Select'
+import BankSelectSet from 'components/SelectSet'
 import {tab as BankTab, tabset as BankTabset} from 'vue-strap'
 
 Vue.use(VueResource)
@@ -22,6 +24,8 @@ Vue.component('bank-sidebar-collapse', BankSidebarCollapse)
 Vue.component('bank-breadcrumb', BankBreadcrumb)
 Vue.component('bank-tab', BankTab)
 Vue.component('bank-tab-set', BankTabset)
+Vue.component('bank-select', BankSelect)
+Vue.component('bank-select-set', BankSelectSet)
 
 require('assets/css/bootstrap.min.css')
 require('assets/css/font-awesome.min.css')

@@ -222,7 +222,9 @@
 </template>
 
 <script>
-import { funcLogin } from 'services/resource'
+import Vue from 'vue'
+import {HOST} from 'services/constant'
+import Storage from 'services/storage'
 
 export default {
   data () {
@@ -233,9 +235,22 @@ export default {
   },
   methods: {
     login () {
-      funcLogin({ username: this.username, password: this.password })
+      this.$http.post(`${HOST}/permission/json_web_token`, { username: this.username, password: this.password })
        .then(res => {
-         console.log(res)
+         let token = res.data.token
+
+         Storage.setObj('role', res.data.role[0])
+         Storage.set('token', token)
+
+         Vue.http.headers.common['Token'] = token
+
+         switch (res.data.role[0].role_id) {
+           case 1:
+             this.$router.go({path: '/admin'})
+             break
+           default:
+
+         }
        })
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar navbar-default navbar-fixed-top" id="navbar">
+  <div class="navbar navbar-default navbar-fixed-top" id="navbar" style="background-color: #3A93DC;">
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
 				<a href="#" class="navbar-brand">
