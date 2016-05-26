@@ -30,6 +30,9 @@
 .nav-list>li ul.submenu {
   display: block;
 }
+.nav-list a {
+  font-size: 14px !important;
+}
 </style>
 
 <script>
