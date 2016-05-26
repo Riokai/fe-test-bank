@@ -46,6 +46,42 @@ export default Vue => {
           component (resolve) {
             require(['views/admin/academyInfo'], resolve)
           }
+        },
+        '/majorInfo': {
+          name: '专业信息',
+          component (resolve) {
+            require(['views/admin/majorInfo'], resolve)
+          }
+        },
+        '/teacherInfo': {
+          name: '教师信息',
+          component (resolve) {
+            require(['views/admin/teacherInfo'], resolve)
+          }
+        },
+        '/classInfo': {
+          name: '专业信息',
+          component (resolve) {
+            require(['views/admin/classInfo'], resolve)
+          }
+        },
+        '/studentInfo': {
+          name: '学生信息',
+          component (resolve) {
+            require(['views/admin/studentInfo'], resolve)
+          }
+        },
+        '/scheduleInfo': {
+          name: '课表信息',
+          component (resolve) {
+            require(['views/admin/scheduleInfo'], resolve)
+          }
+        },
+        '/constructorInfo': {
+          name: '建设者信息',
+          component (resolve) {
+            require(['views/admin/constructorInfo'], resolve)
+          }
         }
       }
     }

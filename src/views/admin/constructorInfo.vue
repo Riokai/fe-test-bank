@@ -1,0 +1,12 @@
+<template>
+  <bank-select-set>
+    <bank-select
+      :index="0"
+      :autostart="true"
+      prop-id="academy_id"
+      info="请选择学院"
+      url="/admin/academys"
+      :value.sync="academy_id"></bank-select>
+  </bank-select-set>
+  <bank-title>查看建设者信息</bank-title>
+</template>

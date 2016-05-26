@@ -30,6 +30,26 @@
         </tr>
       </tbody>
     </table>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="dataTables_info">
+          共{{max}}条记录
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="dataTables_paginate paging_bootstrap">
+          <ul class="pagination">
+            <li class="prev">
+              <a><i class="icon-double-angle-left"></i></a>
+            </li>
+            <li v-for="item in arrPage"><a>{{item}}</a></li>
+            <li class="next">
+              <a><i class="icon-double-angle-right"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -63,7 +83,9 @@ export default {
     return {
       page: 1,
       rows: 10,
-      data: {}
+      max: 0,
+      data: {},
+      arrPage: []
     }
   },
   methods: {
@@ -79,8 +101,13 @@ export default {
         page: this.page,
         rows: this.rows
       }).then(res => {
-        console.log(res.data)
+        this.max = res.data.total
         this.data = res.data.data
+        this.arrPage = []
+
+        for (let i = 1; i <= res.data.totalPage; i++) {
+          this.arrPage.push(i)
+        }
       })
     }
   },
