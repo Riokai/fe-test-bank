@@ -39,6 +39,7 @@ export default Vue => {
           component (resolve) {
             require(['views/admin/scheduleBuild'], resolve)
           }
+          // component: Vue.component('dsfd', require('views/admin/scheduleBuild'))
         },
         '/academyInfo': {
           name: '学院信息',

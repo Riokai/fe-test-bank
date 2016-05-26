@@ -9,7 +9,7 @@
           <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
           <div class="col-sm-10">
             <input
-              type="email"
+              type="text"
               class="form-control"
               id="inputEmail3"
               placeholder=""
@@ -35,13 +35,15 @@
         type="button"
         class="btn btn-default"
         @click="showModal = false">关闭</button>
-      <button type="button" class="btn btn-primary">认证</button>
+      <button type="button" class="btn btn-primary" @click="auth">认证</button>
     </div>
   </modal>
 </template>
 
 <script>
 import {modal as Modal} from 'vue-strap'
+import {HOST} from 'services/constant'
+import Storage from 'services/storage'
 
 export default {
   props: {
@@ -55,8 +57,30 @@ export default {
   },
   data () {
     return {
-      username: '',
-      password: ''
+      username: 'Jedeft',
+      password: '444'
+    }
+  },
+  methods: {
+    auth () {
+      this.$http.post(`${HOST}/permission/twiceAuth`, {
+        username: this.username,
+        second_pwd: this.password
+      }).then(res => {
+        const code = res.data.errorCode
+
+        if (code === 20000) {
+          this.$dispatch('twice-auth-success')
+          this.showModal = false
+          this.username = ''
+          this.password = ''
+
+          Storage.set('twice_auth', 'success')
+          this.$notice('认证成功', 'success')
+        } else {
+          this.$notice('认证失败', 'warning')
+        }
+      })
     }
   },
   watch: {

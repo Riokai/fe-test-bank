@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
+import VueProgress from 'vue-progressbar'
+import VueNotice from 'vue-notice'
+
 import App from './App'
 
 import setRouter from './router'
@@ -15,6 +18,10 @@ import BankSelectSet from 'components/SelectSet'
 import {tab as BankTab, tabset as BankTabset} from 'vue-strap'
 
 Vue.use(VueResource)
+Vue.use(VueProgress)
+Vue.use(VueNotice, {
+  duration: 2000
+})
 
 Vue.component('bank-title', BankTitle)
 Vue.component('bank-header', BankHeader)

@@ -44,6 +44,9 @@
         }
       }
     },
+    created () {
+      console.log(1)
+    },
     data () {
       return {
         activeMenu: ''

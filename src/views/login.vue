@@ -239,6 +239,8 @@ export default {
        .then(res => {
          let token = res.data.token
 
+         this.$notice('登录成功，大妈食屎', 'success')
+
          Storage.setObj('role', res.data.role[0])
          Storage.set('token', token)
 

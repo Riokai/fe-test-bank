@@ -25,7 +25,6 @@
             :autostart="true"
             prop-id="academy_id"
             info="请选择学院"
-            :value.sync="course_id"
             url="/admin/academys"></bank-select>
           <bank-select
             :index="1"
@@ -36,6 +35,7 @@
             :index="2"
             info="请选择课程"
             prop-id="course_id"
+            :value.sync="course_id"
             url="/admin/courses"></bank-select>
         </bank-select-set>
         <bank-title>选择时间</bank-title>
@@ -60,6 +60,7 @@
       bbb
     </bank-tab>
   </bank-tab-set>
+  <twice-auth-modal :show-modal.sync="openModal"></twice-auth-modal>
 
 </template>
 
@@ -75,14 +76,17 @@
 
 <script>
 import {datepicker} from 'vue-strap'
+import TwiceAuthModal from 'components/TwiceAuthModal'
 import {HOST} from 'services/constant'
+import Storage from 'services/storage'
 
 export default {
   components: {
-    datepicker
+    datepicker,
+    TwiceAuthModal
   },
   methods: {
-    submit () {
+    uploadData () {
       this
         .$http
         .post(`${HOST}/admin/syllabuses`, {
@@ -94,12 +98,28 @@ export default {
         .then(res => {
           console.log(res.data)
         })
+    },
+
+    submit () {
+      const twiceAuth = Storage.get('twice_auth')
+
+      if (twiceAuth === 'success') {
+        this.uploadData()
+      } else {
+        this.openModal = true
+
+        this.$once('twice-auth-success', () => {
+          this.uploadData()
+        })
+      }
     }
   },
   data () {
     return {
+      openModal: false,
       academy_id: '',
       teacher_id: '',
+      course_id: '',
       startTime: '2016-5-25',
       endTime: '2016-5-30'
     }
