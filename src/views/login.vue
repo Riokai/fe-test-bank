@@ -229,7 +229,7 @@ import Storage from 'services/storage'
 export default {
   data () {
     return {
-      username: 'jedeft',
+      username: 'Jedeft',
       password: 'admin'
     }
   },

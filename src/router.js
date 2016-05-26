@@ -54,6 +54,10 @@ export default Vue => {
     router.go({path: '/login'})
   }
 
+  router.redirect({
+    '/': '/login'
+  })
+
   router.beforeEach(({to, next}) => {
     // console.log(to)
     let token = Vue.http.headers.common['Token']

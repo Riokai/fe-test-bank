@@ -50,7 +50,6 @@
       this.createData()
 
       this.$router.afterEach(() => {
-        console.log('after')
         this.createData()
       })
     }

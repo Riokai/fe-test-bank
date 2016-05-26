@@ -1,8 +1,10 @@
 <template>
   <div class="col-md-3">
-    <select class="form-control">
-      <option value="{{item.value}}" v-for="item in data">{{item.text}}</option>
-      <!-- <option value="">{{info}}</option> -->
+    <select class="form-control" v-model="value" @change="notify">
+      <option
+        value="{{item[this.propId]}}"
+        v-for="item in data">{{item.name}}
+      </option>
     </select>
   </div>
 </template>
@@ -25,22 +27,58 @@ export default {
     },
     autostart: {
       type: Boolean
+    },
+    propId: {
+      type: String
+    },
+    propName: {
+      type: String,
+      default: 'name'
+    },
+    value: {
+      type: String,
+      twoWay: true,
+      default: ''
     }
   },
   data () {
     return {
       data: [
-        {value: 'default', text: this.info}
+        {[this.propId]: '', [this.propName]: this.info}
       ]
     }
   },
-  created () {
-    if (this.autostart) {
+  methods: {
+    notify () {
+      const selectLength = this.$parent.$children.length
+
+      if (this.index === selectLength - 1) return
+
+      if (!this.value.trim()) return
+
+      this.$dispatch('parent-notify', this.index + 1)
+    },
+    loadData () {
       this
-        .$http.get(`${HOST}${this.url}`)
-        .then(res => {
-          console.log(res.data)
+        .$http.get(`${HOST}${this.url}`, {
+          page: 1,
+          rows: 1000
         })
+        .then(res => {
+          this.data = [{[this.propId]: '', [this.propName]: this.info}]
+
+          this.data = this.data.concat(res.data.data)
+        })
+    }
+  },
+  created () {
+    if (this.autostart) this.loadData()
+  },
+  events: {
+    'child-load-data': function (target) {
+      if (target !== this.index) return
+
+      this.loadData()
     }
   },
   ready () {

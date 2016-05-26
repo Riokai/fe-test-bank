@@ -11,6 +11,11 @@ export default {
       renderData: {}
     }
   },
+  events: {
+    'parent-notify': function (target) {
+      this.$broadcast('child-load-data', target)
+    }
+  },
   ready () {
     // console.log(this.$children)
   }
