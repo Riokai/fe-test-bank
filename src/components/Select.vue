@@ -14,6 +14,9 @@ import {HOST} from 'services/constant'
 
 export default {
   props: {
+    notify: {
+      type: Boolean
+    },
     info: {
       type: String,
       required: true
@@ -51,6 +54,10 @@ export default {
   methods: {
     notify () {
       const selectLength = this.$parent.$children.length
+
+      if (this.notify) {
+        this.$dispatch('update-table', this.propId, this.value)
+      }
 
       if (this.index === selectLength - 1) return
 

@@ -17,6 +17,9 @@
         </tr>
       </thead>
       <tbody>
+        <tr class="odd" v-show="data.length == 0">
+          <td valign="top" colspan="10" class="dataTables_empty">未发现匹配记录！</td>
+        </tr>
         <tr v-for="item in data" :class="getClass($index)">
           <td v-for="(key, text) in cols">{{item[key]}}</td>
           <td>
@@ -77,6 +80,9 @@ export default {
     cols: {
       type: Object,
       required: true
+    },
+    autostart: {
+      type: Boolean
     }
   },
   data () {
@@ -84,7 +90,7 @@ export default {
       page: 1,
       rows: 10,
       max: 0,
-      data: {},
+      data: [],
       arrPage: []
     }
   },
@@ -96,13 +102,25 @@ export default {
         return 'odd'
       }
     },
-    loadData () {
-      this.$http.get(`${HOST}${this.url}`, {
+    loadData (appendData) {
+      let data = {
         page: this.page,
         rows: this.rows
-      }).then(res => {
+      }
+
+      if (appendData) {
+        data = Object.assign({}, data, appendData)
+      }
+
+      this.$http.get(`${HOST}${this.url}`, data).then(res => {
         this.max = res.data.total
-        this.data = res.data.data
+
+        if (res.data.data) {
+          this.data = res.data.data
+        } else {
+          this.data = []
+        }
+
         this.arrPage = []
 
         for (let i = 1; i <= res.data.totalPage; i++) {
@@ -111,8 +129,15 @@ export default {
       })
     }
   },
+  events: {
+    'update-table': function (key, value) {
+      this.loadData({
+        [key]: value
+      })
+    }
+  },
   created () {
-    this.loadData()
+    if (this.autostart) this.loadData()
   }
 }
 </script>

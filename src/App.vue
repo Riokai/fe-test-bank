@@ -20,6 +20,11 @@ export default {
   components: {
     progress
   },
+  events: {
+    'update-table': function (key, value) {
+      this.$broadcast('update-table', key, value)
+    }
+  },
   ready () {
     this.$progress.setHolder(this.myProgress)
 
@@ -43,9 +48,16 @@ export default {
   }
 }
 </script>
+
 <template>
   <div>
     <progress :percent.sync="myProgress.percent" :options="myProgress.options"> </progress>
     <router-view></router-view>
   </div>
 </template>
+
+<style>
+.nav-tabs {
+  margin-bottom: 0 !important;
+}
+</style>

@@ -9,7 +9,7 @@
             :autostart="true"
             prop-id="academy_id"
             info="请选择学院"
-            url="/admin/academys"
+            :url="urlAcademy"
             :value.sync="academy_id"></bank-select>
           <bank-select
             :index="1"
@@ -25,7 +25,7 @@
             :autostart="true"
             prop-id="academy_id"
             info="请选择学院"
-            url="/admin/academys"></bank-select>
+            :url="urlAcademy"></bank-select>
           <bank-select
             :index="1"
             info="请选择专业"
@@ -57,7 +57,7 @@
     	</div>
     </bank-tab>
     <bank-tab header="批量添加">
-      bbb
+      <bank-batch-add url="/admin/syllabuses/csv"></bank-batch-add>
     </bank-tab>
   </bank-tab-set>
   <twice-auth-modal :show-modal.sync="openModal"></twice-auth-modal>
@@ -65,10 +65,6 @@
 </template>
 
 <style>
-.nav-tabs {
-  margin-bottom: 0 !important;
-}
-
 .datepicker, .datepicker-input {
   width: 100% !important;
 }
@@ -77,7 +73,7 @@
 <script>
 import {datepicker} from 'vue-strap'
 import TwiceAuthModal from 'components/TwiceAuthModal'
-import {HOST} from 'services/constant'
+import {HOST, ACADEMY_LIST} from 'services/constant'
 import Storage from 'services/storage'
 
 export default {
@@ -99,7 +95,6 @@ export default {
           console.log(res.data)
         })
     },
-
     submit () {
       const twiceAuth = Storage.get('twice_auth')
 
@@ -117,6 +112,7 @@ export default {
   data () {
     return {
       openModal: false,
+      urlAcademy: ACADEMY_LIST,
       academy_id: '',
       teacher_id: '',
       course_id: '',

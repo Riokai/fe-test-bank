@@ -16,6 +16,8 @@ import BankBreadcrumb from 'components/Breadcrumb'
 import BankSelect from 'components/Select'
 import BankSelectSet from 'components/SelectSet'
 import BankTable from 'components/Table'
+import BankBatchAdd from 'components/BatchAdd'
+import BankSingleAdd from 'components/SingleAdd'
 import {tab as BankTab, tabset as BankTabset} from 'vue-strap'
 
 Vue.use(VueResource)
@@ -35,6 +37,8 @@ Vue.component('bank-tab-set', BankTabset)
 Vue.component('bank-select', BankSelect)
 Vue.component('bank-select-set', BankSelectSet)
 Vue.component('bank-table', BankTable)
+Vue.component('bank-batch-add', BankBatchAdd)
+Vue.component('bank-single-add', BankSingleAdd)
 
 require('assets/css/bootstrap.min.css')
 require('assets/css/font-awesome.min.css')

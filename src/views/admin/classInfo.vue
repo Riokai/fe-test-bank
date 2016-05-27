@@ -8,5 +8,6 @@
       url="/admin/academys"
       :value.sync="academy_id"></bank-select>
   </bank-select-set>
-  <bank-title>查看教师班级</bank-title>
+  <bank-title>查看班级信息</bank-title>
+  <bank-title>添加班级信息</bank-title>
 </template>

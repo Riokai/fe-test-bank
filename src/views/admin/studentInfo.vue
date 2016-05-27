@@ -9,4 +9,5 @@
       :value.sync="academy_id"></bank-select>
   </bank-select-set>
   <bank-title>查看学生信息</bank-title>
+  <bank-title>添加学生信息</bank-title>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar navbar-default navbar-fixed-top" id="navbar" style="background-color: #3A93DC;">
+  <div class="navbar navbar-default navbar-fixed-top" id="navbar" style="background-color: #444;">
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
 				<a href="#" class="navbar-brand">
@@ -31,8 +31,8 @@
 										<span class="pull-right">65%</span>
 									</div>
 
-									<div class="progress progress-mini ">
-										<div style="width:65%" class="progress-bar "></div>
+									<div class="progress progress-mini">
+										<div style="width:65%" class="progress-bar"></div>
 									</div>
 								</a>
 							</li>
