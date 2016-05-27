@@ -9,3 +9,5 @@ export const MAJOR_LIST = '/admin/majors'
 export const TEACHER_LIST = '/admin/teachers'
 
 export const BUILDER_LIST = '/admin/bankBuilders'
+
+export const CLASS_LIST = '/admin/classes'
