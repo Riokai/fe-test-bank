@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-3">
-    <select class="form-control" v-model="value" @change="notify">
+    <select class="form-control" v-model="value" @change="notifyParent">
       <option
         value="{{item[this.propId]}}"
         v-for="item in data">{{item.name}}
@@ -52,8 +52,10 @@ export default {
     }
   },
   methods: {
-    notify () {
+    notifyParent () {
       const selectLength = this.$parent.$children.length
+
+      console.log(selectLength)
 
       if (this.notify) {
         this.$dispatch('update-table', this.propId, this.value)

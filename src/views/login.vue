@@ -237,6 +237,8 @@ export default {
     login () {
       this.$http.post(`${HOST}/permission/json_web_token`, { username: this.username, password: this.password })
        .then(res => {
+         console.log(res.headers)
+         console.log(res.headers())
          let token = res.data.token
 
          this.$notice('登录成功，大妈食屎', 'success')
