@@ -39,6 +39,7 @@ export default {
             teacherInfo: '教师信息',
             classInfo: '班级信息',
             studentInfo: '学生信息',
+            courseInfo: '课程信息',
             scheduleInfo: '课表信息',
             constructorInfo: '建设者信息'
           }

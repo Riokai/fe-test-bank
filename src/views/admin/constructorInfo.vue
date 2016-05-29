@@ -5,7 +5,7 @@
       :autostart="true"
       prop-id="academy_id"
       info="请选择学院"
-      url="/admin/academys"></bank-select>
+      :url="ACADEMY_LIST"></bank-select>
   </bank-select-set>
   <bank-title>查看建设者信息</bank-title>
 
@@ -22,7 +22,7 @@
       :autostart="true"
       prop-id="academy_id"
       info="请选择学院"
-      :url="urlAcademy"
+      :url="ACADEMY_LIST"
       :value.sync="academy_id"></bank-select>
     <bank-select
       :index="1"
@@ -38,7 +38,7 @@
       :autostart="true"
       prop-id="academy_id"
       info="请选择学院"
-      :url="urlAcademy"></bank-select>
+      :url="ACADEMY_LIST"></bank-select>
     <bank-select
       :index="1"
       info="请选择专业"
@@ -59,12 +59,13 @@
 </template>
 
 <script>
-import {BUILDER_LIST} from 'services/constant'
+import {BUILDER_LIST, ACADEMY_LIST} from 'services/constant'
 
 export default {
   data () {
     return {
       urlBuilder: BUILDER_LIST,
+      ACADEMY_LIST,
       tableCols: {
         teacher_id: '教师编号',
         teacher_name: '老师姓名',

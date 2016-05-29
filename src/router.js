@@ -71,6 +71,12 @@ export default Vue => {
             require(['views/admin/studentInfo'], resolve)
           }
         },
+        '/courseInfo': {
+          name: '课程信息',
+          component (resolve) {
+            require(['views/admin/courseInfo'], resolve)
+          }
+        },
         '/scheduleInfo': {
           name: '课表信息',
           component (resolve) {
