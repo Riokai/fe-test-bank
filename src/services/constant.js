@@ -11,3 +11,7 @@ export const TEACHER_LIST = '/admin/teachers'
 export const BUILDER_LIST = '/admin/bankBuilders'
 
 export const CLASS_LIST = '/admin/classes'
+
+export const COURSE_LIST = '/admin/courses'
+
+export const STUDENT_LIST = '/admin/students'
