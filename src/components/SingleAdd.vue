@@ -1,14 +1,15 @@
 <template>
   <form action="" class="form-horizontal">
-    <bank-select-set>
-      <div class="form-group">
-        <label class="col-md-2 text-right" for="">dsdsfd:</label>
+    <bank-select-set v-show="selects.length > 0">
+      <div class="form-group" v-for="select in selects">
+        <label class="col-md-2 text-right" for="">{{select.text}}:</label>
         <bank-select
-         :autostart="true"
-         :index="0"
-         info="请选择学院"
-         prop-id="academy_id"
-         :url="urlAcademy"></bank-select>
+         :autostart="$index === 0"
+         :index="$index"
+         :info="select.info"
+         :prop-id="select.id"
+         :url="select.url"
+         :value.sync="select.value"></bank-select>
       </div>
     </bank-select-set>
     <div class="form-group" v-for="input in inputs">
@@ -64,6 +65,12 @@ export default {
   methods: {
     submit () {
       let sendData = {}
+
+      if (this.selectData.length !== 0) {
+        this.selects.forEach(item => {
+          sendData[item.key] = item.value
+        })
+      }
 
       this.inputs.forEach(item => {
         sendData[item.key] = item.value

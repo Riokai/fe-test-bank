@@ -18,6 +18,7 @@ import BankSelectSet from 'components/SelectSet'
 import BankTable from 'components/Table'
 import BankBatchAdd from 'components/BatchAdd'
 import BankSingleAdd from 'components/SingleAdd'
+import StudentTitle from 'components/StudentTitle'
 import {tab as BankTab, tabset as BankTabset} from 'vue-strap'
 
 Vue.use(VueResource)
@@ -39,6 +40,8 @@ Vue.component('bank-select-set', BankSelectSet)
 Vue.component('bank-table', BankTable)
 Vue.component('bank-batch-add', BankBatchAdd)
 Vue.component('bank-single-add', BankSingleAdd)
+
+Vue.component('student-title', StudentTitle)
 
 require('assets/css/bootstrap.min.css')
 require('assets/css/font-awesome.min.css')

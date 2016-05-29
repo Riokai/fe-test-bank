@@ -231,15 +231,19 @@ export default {
     return {
       username: 'Jedeft',
       password: 'admin'
+
+      // username: 'Tom',
+      // password: 'student'
     }
   },
   methods: {
     login () {
       this.$http.post(`${HOST}/permission/json_web_token`, { username: this.username, password: this.password })
        .then(res => {
-         console.log(res.headers)
-         console.log(res.headers())
+        //  console.log(res.headers)
+        //  console.log(res.headers())
          let token = res.data.token
+         let path = ''
 
          this.$notice('登录成功，大妈食屎', 'success')
 
@@ -250,11 +254,15 @@ export default {
 
          switch (res.data.role[0].role_id) {
            case 1:
-             this.$router.go({path: '/admin'})
+             path = '/admin'
+             break
+           case 3:
+             path = '/student'
              break
            default:
-
          }
+
+         this.$router.go({path})
        })
     }
   }

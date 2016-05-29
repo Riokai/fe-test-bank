@@ -90,6 +90,13 @@ export default Vue => {
           }
         }
       }
+    },
+    '/student': {
+      name: '首页',
+      auth: 3,
+      component (resolve) {
+        require(['views/student/index'], resolve)
+      }
     }
   })
 

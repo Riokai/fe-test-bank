@@ -4,13 +4,16 @@
   <bank-table
     :autostart="true"
     :cols="tableCols"
-    :url="urlAcademy"></bank-table>
+    :url="ACADEMY_LIST"></bank-table>
 
   <bank-title>添加学院信息</bank-title>
 
   <bank-tab-set :active="0">
     <bank-tab header="单个添加">
-      <bank-single-add :inputs="inputData" url="/admin/academys"></bank-single-add>
+      <bank-single-add
+        :inputs="inputData"
+        :selects="selectData"
+        :url="ACADEMY_LIST"></bank-single-add>
     </bank-tab>
     <bank-tab header="批量添加">
       <bank-batch-add url="/admin/academys/csv"></bank-batch-add>
@@ -24,11 +27,20 @@ import {ACADEMY_LIST} from 'services/constant'
 export default {
   data () {
     return {
-      urlAcademy: ACADEMY_LIST,
+      ACADEMY_LIST,
       tableCols: {
         academy_id: '专业编号',
         name: '学院名称'
       },
+      selectData: [
+        {
+          text: '选择学院',
+          url: ACADEMY_LIST,
+          value: '',
+          info: '请选择学院',
+          key: 'academy_id'
+        }
+      ],
       inputData: [
         {
           text: '学院编号',

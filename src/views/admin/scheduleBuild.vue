@@ -60,7 +60,7 @@
       <bank-batch-add url="/admin/syllabuses/csv"></bank-batch-add>
     </bank-tab>
   </bank-tab-set>
-  <twice-auth-modal :show-modal.sync="openModal"></twice-auth-modal>
+  <!-- <twice-auth-modal :show-modal.sync="openModal"></twice-auth-modal> -->
 
 </template>
 
@@ -72,14 +72,14 @@
 
 <script>
 import {datepicker} from 'vue-strap'
-import TwiceAuthModal from 'components/TwiceAuthModal'
+// import TwiceAuthModal from 'components/TwiceAuthModal'
 import {HOST, ACADEMY_LIST} from 'services/constant'
-import Storage from 'services/storage'
+// import Storage from 'services/storage'
 
 export default {
   components: {
-    datepicker,
-    TwiceAuthModal
+    datepicker
+    // TwiceAuthModal
   },
   methods: {
     uploadData () {
@@ -92,21 +92,23 @@ export default {
           end: this.endTime
         })
         .then(res => {
-          console.log(res.data)
+          if (Number(res.data.errorCode) === 0) {
+            this.$notice('添加成功', 'success')
+          }
         })
     },
     submit () {
-      const twiceAuth = Storage.get('twice_auth')
+      // const twiceAuth = Storage.get('twice_auth')
 
-      if (twiceAuth === 'success') {
-        this.uploadData()
-      } else {
-        this.openModal = true
-
-        this.$once('twice-auth-success', () => {
-          this.uploadData()
-        })
-      }
+      // if (twiceAuth === 'success') {
+      this.uploadData()
+      // } else {
+      //   this.openModal = true
+      //
+      //   this.$once('twice-auth-success', () => {
+      //     this.uploadData()
+      //   })
+      // }
     }
   },
   data () {

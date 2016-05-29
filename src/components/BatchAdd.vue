@@ -31,7 +31,9 @@ export default {
       formData.append('file', this.$els.input.files[0])
 
       this.$http.post(`${HOST}${this.url}`, formData).then(res => {
-        console.log(res.data)
+        if (Number(res.data.errorCode) === 0) {
+          this.$notice('添加成功', 'success')
+        }
       })
     }
   }
