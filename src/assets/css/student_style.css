@@ -1,0 +1,101 @@
+body {font-family: "微软雅黑", "microsoft yahei";/* min-width: 400px; */}
+html, body {height: 100%;}
+
+/*reset*/
+ul, ol {list-style: none; margin: 0; padding: 0;}
+a:hover {text-decoration: none;}
+a:active {outline: none;}
+a:focus {outline: none;}
+
+.header {width: 100%;height: 50px; background-color: #f8f8f8; border-bottom: 1px solid #e7e7e7;}
+.header-title {float: left; line-height: 50px;}
+.header-title a {color: #777; font-size: 18px; font-weight: bold;}
+
+.header-list {float: left; margin-left: 10px;}
+.header-list li {float: left;}
+.header-list a {display: block; line-height: 50px; color: #777; padding: 0 14px;}
+.header-list a:hover, .header-list .active a {background-color: #e7e7e7; }
+
+.header-user {float: right; line-height: 50px;}
+
+.content-header {background-color: #3A93DC; height: 70px; line-height: 70px;}
+.content-header h2 {color: #fff; font-weight: bold; float: left;}
+.content-header p { float: right; color: #fff; font-size: 16px;}
+
+.module-title h3 {font-weight: bold; border-bottom: 1px solid #ccc; padding-bottom: 4px; width: 200px;}
+.module-content {margin-top: 20px;}
+.module-content select {width:200px; height: 30px; color: #8f8f8f; padding-left: 20px; border: 1px solid #A9A9A9; border-radius: 4px;}
+.numInfo {font-size: 16px; line-height: 33px; margin-left: 20px;}
+
+#numQuestion {width:60px; height: 34px; padding-left: 24px; border:1px solid #A9A9A9; border-left: none; border-right: none;}
+
+.question-list {padding-left: 30px;}
+.question-item {position: relative; margin-bottom: 20px;}
+.question-num { position:absolute; top: 0; left: -29px; width: 30px; height: 30px; background-color: #F43C5E; color: #fff; text-align: center; line-height: 30px;}
+.question-header img {max-width: 100%; cursor: pointer;}
+.question-content {width: 100%; height: auto; border: 1px solid #ccc; padding: 15px 20px; letter-spacing: 2px;}
+.question-content:hover {border: 1px solid #3A93DC;}
+.question-answer input {position: relative; top: 1px; margin-right: 10px;}
+.question-answer li {}
+.question-choice {margin-top: 15px;}
+
+/*简答题*/
+.question-statement textarea {width: 100%; border: 1px solid #ccc;}
+
+.choice-item {width: 21%; height: 30px; line-height: 30px; margin: 0 2%; background-color: #fff; float: left; text-align: center; border: 1px solid #d2d2d2; cursor: pointer;}
+.choice-item.active/*, .choice-item:hover*/ {background-color: #2D7DED; color: #fff; border-color: #135CBE;}
+
+/*判断题*/
+.judge-item {width: 40%; margin: 0 5%;}
+
+/* 试题悬浮窗 */
+#examResult {position:fixed;  top:200px; width:230px;  border:2px solid #FF9308; transition:right .5s ease-in-out; background-color: #fff; border-radius: 4px; }
+.panel-lock {right:0;}
+.panel-unlock { right:-192px; }
+.panel-unlock:hover {right:0;}
+.result-title {float:left; width:40px; height: 100%; background-color:#DDF1FE; font-size:20px; padding-left:10px;}
+/*.result-title p:first-child {margin-top:20px;}*/
+.result-title a {color:#000; cursor:pointer;}
+.result-title p {margin-top:50px;}
+.result-option {float:right; width:175px;  text-align:left; padding:10px 4px; background-color:#fff;}
+.result-option dl {margin: 6px 0;}
+.result-option dd {float: left; margin: 4px;}
+.result-option a {display: block; width: 30px; height: 20px; border: 1px solid #ccc; text-align: center;}
+
+/* 在线测试 */
+.del-exam {color:#f00;}
+.del-exam:hover {color:#f00; cursor:pointer;}
+.del-exam i, .start-exam i {margin-right:4px;}
+.exam-table {margin-top:10px;}
+.check-point { margin:0 4px;}
+
+.content-end {padding: 30px 0;}
+ 
+.btn-red {background-color: #F43C5E; color: #fff;}
+.btn-red:hover {color: #fff;}
+.btn-red:active {color: #fff;}
+.btn-red:focus {color: #fff;}
+
+/* jQuery UI */
+.module-slider { padding: 0 0 20px 0;}
+.ui-slider {background-color: #ccc;}
+.ui-slider-handle {background-color: #4aa4ce; border-radius: 50%;}
+#slide-show {position: relative; top: -4px;}
+#slide-show span {font-size:16px; color: #f00; }
+
+
+/* 图片全屏展示 */
+#picFullScreen  {display: none; width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 1000;}
+#picFullScreen .backDrop{position: absolute; top: 0; left: 0; z-index: 1001; width: 100%; height: 100%; background-color: #000; opacity: .5;}
+#picFullScreen .closeBtn {position: absolute; top: 20px; right: 50px; z-index: 1002; font-size: 50px; color: #fff; cursor: pointer; opacity: 1; transition: all .5s ease-in-out;}
+#picFullScreen .closeBtn:hover {transform: scale(1.5);}
+#picFullScreen img {position: absolute; z-index: 1002; top: 50%; left: 50%; opacity: 1; max-width: 100%;}
+
+
+.test-log {margin-top: 20px;}
+.nav-tabs a {position: relative; z-index: 3; top: 1px;}
+.nav-tabs .active a {font-weight: bold;}
+.tab-content {position: relative; z-index: 2; padding: 10px; border: 1px solid #ddd;}
+
+table thead {background-color: #eee;}
+table th { text-align: center;}
