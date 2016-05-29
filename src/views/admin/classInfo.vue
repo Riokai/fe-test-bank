@@ -5,6 +5,7 @@
       :autostart="true"
       prop-id="academy_id"
       info="请选择学院"
+      :notify="false"
       :url="urlAcademy"></bank-select>
     <bank-select
       :index="1"
@@ -23,12 +24,13 @@
 </template>
 
 <script>
-import {CLASS_LIST} from 'services/constant'
+import {CLASS_LIST, ACADEMY_LIST} from 'services/constant'
 
 export default {
   data () {
     return {
       urlClass: CLASS_LIST,
+      urlAcademy: ACADEMY_LIST,
       tableCols: {
         class_id: '班级编号',
         name: '班级名称'
