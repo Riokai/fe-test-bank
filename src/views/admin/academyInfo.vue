@@ -12,7 +12,6 @@
     <bank-tab header="单个添加">
       <bank-single-add
         :inputs="inputData"
-        :selects="selectData"
         :url="ACADEMY_LIST"></bank-single-add>
     </bank-tab>
     <bank-tab header="批量添加">

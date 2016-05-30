@@ -5,7 +5,7 @@
       :autostart="true"
       prop-id="academy_id"
       info="请选择学院"
-      :url="urlAcademy"
+      :url="ACADEMY_LIST"
       :notify="true"
       :value.sync="academy_id"></bank-select>
   </bank-select-set>
@@ -13,7 +13,16 @@
 
   <bank-table
     :cols="tableCols"
-    :url="urlMajor"></bank-table>
+    :url="MAJOR_LIST"></bank-table>
+
+    <bank-tab-set :active="0">
+      <bank-tab header="单个添加">
+        <bank-single-add :inputs="inputData" :selects="selectData" :url="MAJOR_LIST"></bank-single-add>
+      </bank-tab>
+      <bank-tab header="批量添加">
+        <bank-batch-add :url="MAJOR_LIST + '/csv'"></bank-batch-add>
+      </bank-tab>
+    </bank-tab-set>
 </template>
 
 <script>
@@ -23,12 +32,33 @@ export default {
   data () {
     return {
       academy_id: '',
-      urlMajor: MAJOR_LIST,
-      urlAcademy: ACADEMY_LIST,
+      MAJOR_LIST,
+      ACADEMY_LIST,
       tableCols: {
         major_id: '专业编号',
         name: '专业名称'
-      }
+      },
+      selectData: [
+        {
+          text: '选择学院',
+          url: ACADEMY_LIST,
+          value: '',
+          key: 'academy_id',
+          info: '请选择学院'
+        }
+      ],
+      inputData: [
+        {
+          text: '专业编号',
+          key: 'major_id',
+          value: ''
+        },
+        {
+          text: '专业名称',
+          key: 'name',
+          value: ''
+        }
+      ]
     }
   }
 }

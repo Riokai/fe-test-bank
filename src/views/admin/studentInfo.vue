@@ -27,7 +27,7 @@
 
   <bank-tab-set :active="0">
     <bank-tab header="单个添加">
-      <bank-single-add :inputs="inputData" :url="STUDENT_LIST"></bank-single-add>
+      <bank-single-add :inputs="inputData" :selects="selectData" :url="STUDENT_LIST"></bank-single-add>
     </bank-tab>
     <bank-tab header="批量添加">
       <bank-batch-add url="/admin/students/csv"></bank-batch-add>
@@ -41,7 +41,8 @@ import {
   MAJOR_LIST,
   COURSE_LIST,
   TEACHER_LIST,
-  STUDENT_LIST
+  STUDENT_LIST,
+  CLASS_LIST
 } from 'services/constant'
 
 export default {
@@ -52,11 +53,35 @@ export default {
       COURSE_LIST,
       TEACHER_LIST,
       STUDENT_LIST,
+      CLASS_LIST,
       tableCols: {
         student_id: '学生编号',
         name: '学生姓名',
         class_name: '班级名称'
       },
+      selectData: [
+        {
+          text: '选择学院',
+          url: ACADEMY_LIST,
+          value: '',
+          key: 'academy_id',
+          info: '请选择学院'
+        },
+        {
+          text: '选择专业',
+          url: MAJOR_LIST,
+          value: '',
+          key: 'course_id',
+          info: '请选择专业'
+        },
+        {
+          text: '选择班级',
+          url: CLASS_LIST,
+          value: '',
+          key: 'class_id',
+          info: '请选择班级'
+        }
+      ],
       inputData: [
         {
           text: '学号',

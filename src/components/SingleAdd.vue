@@ -50,7 +50,8 @@ export default {
       required: true
     },
     selects: {
-      type: Array
+      type: Array,
+      default: () => []
     },
     url: {
       type: String,
@@ -66,7 +67,7 @@ export default {
     submit () {
       let sendData = {}
 
-      if (this.selectData.length !== 0) {
+      if (this.selects.length !== 0) {
         this.selects.forEach(item => {
           sendData[item.key] = item.value
         })
@@ -77,7 +78,19 @@ export default {
       })
 
       this.$http.post(`${HOST}${this.url}`, sendData).then(res => {
-        console.log(res.data)
+        if (res.data.errorCode === 0) {
+          this.$notice('添加成功', 'success')
+
+          if (this.selects.length !== 0) {
+            this.selects.forEach(item => {
+              item.value = ''
+            })
+          }
+
+          this.inputs.forEach(item => {
+            item.value = ''
+          })
+        }
       })
     }
   }

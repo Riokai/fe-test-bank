@@ -19,7 +19,7 @@
   <bank-title>添加课程信息</bank-title>
   <bank-tab-set :active="0">
     <bank-tab header="单个添加">
-      <bank-single-add :inputs="inputData" :url="COURSE_LIST"></bank-single-add>
+      <bank-single-add :inputs="inputData" :url="COURSE_LIST" :selects="selectData"></bank-single-add>
     </bank-tab>
     <bank-tab header="批量添加">
       <bank-batch-add url="/admin/courses/csv"></bank-batch-add>
@@ -40,6 +40,22 @@ export default {
         course_id: '课程编号',
         course_name: '课程名称'
       },
+      selectData: [
+        {
+          text: '选择学院',
+          url: ACADEMY_LIST,
+          value: '',
+          key: 'academy_id',
+          info: '请选择学院'
+        },
+        {
+          text: '选择专业',
+          url: MAJOR_LIST,
+          value: '',
+          key: 'course_id',
+          info: '请选择专业'
+        }
+      ],
       inputData: [
         {
           text: '课程编号',
